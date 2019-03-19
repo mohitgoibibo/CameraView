@@ -18,7 +18,7 @@ package com.otaliastudios.cameraview;
 
 import android.graphics.SurfaceTexture;
 import android.os.Build;
-import androidx.annotation.RequiresApi;
+import android.support.annotation.RequiresApi;
 import android.view.Surface;
 
 /**

@@ -1,7 +1,7 @@
 package com.otaliastudios.cameraview;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
+import android.support.annotation.NonNull;
+import android.support.annotation.WorkerThread;
 
 /**
  * A FrameProcessor will process {@link Frame}s coming from the camera preview.

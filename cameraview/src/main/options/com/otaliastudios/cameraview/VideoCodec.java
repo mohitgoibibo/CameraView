@@ -1,8 +1,7 @@
 package com.otaliastudios.cameraview;
 
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.support.annotation.Nullable;
 
 /**
  * Constants for selecting the encoder of video recordings.

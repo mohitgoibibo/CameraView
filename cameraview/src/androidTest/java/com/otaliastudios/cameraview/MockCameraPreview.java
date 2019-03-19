@@ -2,8 +2,7 @@ package com.otaliastudios.cameraview;
 
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 

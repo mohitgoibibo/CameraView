@@ -3,10 +3,9 @@ package com.otaliastudios.cameraview;
 
 import android.content.Context;
 import android.graphics.PointF;
-
-import androidx.annotation.NonNull;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.MediumTest;
+import android.support.annotation.NonNull;
+import android.support.test.filters.MediumTest;
+import android.support.test.runner.AndroidJUnit4;
 import android.view.ViewGroup;
 
 import org.junit.After;
@@ -18,7 +17,6 @@ import org.mockito.stubbing.Answer;
 import org.mockito.stubbing.Stubber;
 
 import static junit.framework.Assert.assertNotNull;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyFloat;

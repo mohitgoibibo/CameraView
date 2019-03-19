@@ -10,7 +10,7 @@ import android.hardware.Camera;
 import android.opengl.EGL14;
 import android.opengl.EGLContext;
 import android.opengl.Matrix;
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
 
 import java.io.ByteArrayOutputStream;
 

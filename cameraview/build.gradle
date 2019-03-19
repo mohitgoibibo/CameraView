@@ -17,7 +17,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName project.version
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -43,16 +43,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.23.0'
 
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test:rules:1.1.1'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
     androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    api 'androidx.exifinterface:exifinterface:1.0.0'
-    api 'androidx.lifecycle:lifecycle-common:2.1.0-alpha01'
-    implementation 'androidx.annotation:annotation:1.0.1'
+    api "com.android.support:exifinterface:28.0.0"
+    api "android.arch.lifecycle:common:1.1.1"
+    implementation "com.android.support:support-annotations:28.0.0"
 }
 
 //endregion
@@ -189,41 +188,27 @@ task mergedCoverageReport(type: JacocoReport) {
     dependsOn "testDebugUnitTest"
     dependsOn "connectedCheck"
 
-    // Merge unit tests and android tests data
-    executionData = fileTree(dir: "$buildDir", includes: [
-            "jacoco/testDebugUnitTest.exec", // Unit tests
-            "outputs/code-coverage/connected/*coverage.ec" // Android tests
+    def testData = "jacoco/testDebugUnitTest.exec"
+    def androidTestData = "outputs/code-coverage/connected/*coverage.ec"
+    executionData = fileTree(dir: "$buildDir", includes: [testData, androidTestData])
+
+    // Sources.
+    sourceDirectories = android.sourceSets.main.java.sourceFiles
+    // Add BuildConfig and R.
+    additionalSourceDirs = files([
+        "$buildDir/generated/source/buildConfig/debug",
+        "$buildDir/generated/source/r/debug"
     ])
 
-    // Sources
-    sourceDirectories = files(android.sourceSets.main.java.sourceFiles)
-    additionalSourceDirs = files([ // Add BuildConfig and R.
-            "$buildDir/generated/source/buildConfig/debug",
-            "$buildDir/generated/source/r/debug"
-    ])
+    // Classes.
+    def debugDir = "$buildDir/intermediates/classes/debug"
+    def filter = ['**/R.class', '**/R$*.class', '**/*$ViewInjector*.*',
+                  '**/BuildConfig.*', '**/Manifest*.*']
+    classDirectories = fileTree(dir: debugDir, excludes: filter);
 
-    // Classes (.class files)
-    // Not everything in the filter relates to CameraView,
-    // but let's keep a generic filter
-    def classDir = "$buildDir/intermediates/javac/debug"
-    def classFilter = [
-            '**/R.class',
-            '**/R$*.class',
-            '**/BuildConfig.*',
-            '**/Manifest*.*',
-            'android/**',
-            'androidx/**',
-            'com/google/**',
-            '**/*$ViewInjector*.*',
-            '**/Dagger*Component.class',
-            '**/Dagger*Component$Builder.class',
-            '**/*Module_*Factory.class',
-    ]
-    classDirectories = fileTree(dir: classDir, excludes: classFilter);
-
-    reports.html.enabled = true
     reports.xml.enabled = true
-    reports.xml.destination file("$reportsDirectory/mergedCoverageReport/report.xml")
+    reports.html.enabled = true
+    reports.xml.destination = "$reportsDirectory/mergedCoverageReport/report.xml"
 }
 
 //endregion

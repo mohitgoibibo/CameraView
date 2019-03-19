@@ -1,7 +1,7 @@
 package com.otaliastudios.cameraview;
 
 
-import androidx.annotation.Nullable;
+import android.support.annotation.Nullable;
 
 /**
  * White balance values control the white balance settings.

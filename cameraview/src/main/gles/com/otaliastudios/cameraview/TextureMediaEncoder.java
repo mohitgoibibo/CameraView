@@ -3,11 +3,9 @@ package com.otaliastudios.cameraview;
 import android.opengl.EGLContext;
 import android.opengl.Matrix;
 import android.os.Build;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
 class TextureMediaEncoder extends VideoMediaEncoder<TextureMediaEncoder.Config> {

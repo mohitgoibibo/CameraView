@@ -2,7 +2,7 @@ package com.otaliastudios.cameraview;
 
 import android.content.Context;
 import android.graphics.PointF;
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 

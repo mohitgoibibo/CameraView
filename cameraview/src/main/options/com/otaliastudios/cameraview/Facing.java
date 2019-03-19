@@ -2,8 +2,8 @@ package com.otaliastudios.cameraview;
 
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 /**
  * Facing value indicates which camera sensor should be used for the current session.

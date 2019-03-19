@@ -1,7 +1,7 @@
 package com.otaliastudios.cameraview;
 
 
-import androidx.annotation.Nullable;
+import android.support.annotation.Nullable;
 
 /**
  * Grid values can be used to draw grid lines over the camera preview.

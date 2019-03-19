@@ -2,14 +2,12 @@ package com.otaliastudios.cameraview;
 
 import android.graphics.PointF;
 import android.location.Location;
-
-
 import android.os.Handler;
 import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
-import androidx.annotation.WorkerThread;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
+import android.support.annotation.WorkerThread;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -50,7 +48,8 @@ abstract class CameraController implements
     protected float mExposureCorrectionValue;
     protected boolean mPlaySounds;
 
-    @Nullable private SizeSelector mPreviewStreamSizeSelector;
+    @Nullable
+    private SizeSelector mPreviewStreamSizeSelector;
     private SizeSelector mPictureSizeSelector;
     private SizeSelector mVideoSizeSelector;
 

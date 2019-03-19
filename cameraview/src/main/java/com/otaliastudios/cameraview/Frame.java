@@ -1,7 +1,6 @@
 package com.otaliastudios.cameraview;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.support.annotation.NonNull;
 
 /**
  * A preview frame to be processed by {@link FrameProcessor}s.

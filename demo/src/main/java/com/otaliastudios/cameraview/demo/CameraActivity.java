@@ -1,12 +1,12 @@
 package com.otaliastudios.cameraview.demo;
 
+import android.arch.lifecycle.LifecycleOwner;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -17,14 +17,15 @@ import com.otaliastudios.cameraview.CameraListener;
 import com.otaliastudios.cameraview.CameraLogger;
 import com.otaliastudios.cameraview.CameraOptions;
 import com.otaliastudios.cameraview.CameraView;
-import com.otaliastudios.cameraview.PictureResult;
 import com.otaliastudios.cameraview.Mode;
+import com.otaliastudios.cameraview.PictureResult;
 import com.otaliastudios.cameraview.VideoResult;
 
 import java.io.File;
 
 
-public class CameraActivity extends AppCompatActivity implements View.OnClickListener, ControlView.Callback {
+
+public class CameraActivity extends AppCompatActivity implements View.OnClickListener, ControlView.Callback, LifecycleOwner {
 
     private CameraView camera;
     private ViewGroup controlPanel;
@@ -174,8 +175,8 @@ public class CameraActivity extends AppCompatActivity implements View.OnClickLis
             message("Already taking video.", false);
             return;
         }
-        message("Recording snapshot for 5 seconds...", true);
-        camera.takeVideoSnapshot(new File(getFilesDir(), "video.mp4"), 5000);
+        message("Recording snapshot for 15 seconds...", true);
+        camera.takeVideoSnapshot(new File(getFilesDir(), "video.mp4"), 15000);
     }
 
     private void toggleCamera() {

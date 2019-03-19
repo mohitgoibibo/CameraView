@@ -1,7 +1,7 @@
 package com.otaliastudios.cameraview;
 
 
-import androidx.annotation.Nullable;
+import android.support.annotation.Nullable;
 
 /**
  * Flash value indicates the flash mode to be used.

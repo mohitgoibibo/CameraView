@@ -2,7 +2,7 @@ package com.otaliastudios.cameraview;
 
 
 import android.content.Context;
-import androidx.test.rule.ActivityTestRule;
+import android.support.test.rule.ActivityTestRule;
 import android.view.ViewGroup;
 
 import org.junit.After;
@@ -12,10 +12,15 @@ import org.junit.Test;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-
-import static org.junit.Assert.*;
-
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 public abstract class CameraPreviewTest extends BaseTest {
 
